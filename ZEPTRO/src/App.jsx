@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Cart from "./pages/Cart";
 import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
 
 const App = () => {
   return (
