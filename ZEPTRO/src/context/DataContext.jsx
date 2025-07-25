@@ -12,13 +12,14 @@ export const DataProvider = ({ children }) => {
       const res = await axios.get(
         "https://fakestoreapi.in/api/products?limit=150"
       );
+      setData(res.data.products);
       console.log(res);
     } catch (error) {
       console.log(error);
     }
   };
   return (
-    <DataContext.Provider value={{ data, setData , fetchAllProducts}}>
+    <DataContext.Provider value={{ data, setData, fetchAllProducts }}>
       {children}
     </DataContext.Provider>
   );
