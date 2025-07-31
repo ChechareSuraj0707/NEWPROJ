@@ -1,12 +1,13 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import { DataContext } from "../context/DataContext";
+import { getData } from "../context/DataContext";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+import Category from "./Category";
 
 const Carousel = () => {
-  const { data, fetchAllProducts } = useContext(DataContext);
+  const { data, fetchAllProducts } = getData();
   useEffect(() => {
     fetchAllProducts();
   }, []);
@@ -16,9 +17,6 @@ const Carousel = () => {
   const SamplePrevArrow = (props) => {
     const { className, style, onClick } = props;
 
-    useEffect(() => {
-      console.log("DATA ---> ", data);
-    }, [data]);
     return (
       <div
         onClick={onClick}
@@ -120,6 +118,7 @@ const Carousel = () => {
           );
         })}
       </Slider>
+      <Category />
     </div>
   );
 };

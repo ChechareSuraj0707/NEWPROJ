@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import axios from "axios";
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 export const DataContext = createContext(null);
 
@@ -26,3 +26,6 @@ export const DataProvider = ({ children }) => {
     </DataContext.Provider>
   );
 };
+
+// eslint-disable-next-line react-hooks/rules-of-hooks
+export const getData = () => useContext(DataContext);
