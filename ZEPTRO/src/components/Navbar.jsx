@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { MapPin } from "lucide-react";
 import { FaCaretDown } from "react-icons/fa";

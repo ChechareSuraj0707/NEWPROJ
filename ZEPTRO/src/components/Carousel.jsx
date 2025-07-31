@@ -15,6 +15,10 @@ const Carousel = () => {
 
   const SamplePrevArrow = (props) => {
     const { className, style, onClick } = props;
+
+    useEffect(() => {
+      console.log("DATA ---> ", data);
+    }, [data]);
     return (
       <div
         onClick={onClick}
@@ -34,6 +38,7 @@ const Carousel = () => {
             padding: "2px",
             left: "50px",
           }}
+          // onMouseOver="this.style.backgroundColor=`#555`"
           // onMouseOver="this.style.backgroundColor=`#555`"
         />
       </div>
