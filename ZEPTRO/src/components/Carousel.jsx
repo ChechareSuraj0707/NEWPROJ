@@ -7,10 +7,11 @@ import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 
 const Carousel = () => {
   const { data, fetchAllProducts } = useContext(DataContext);
-  console.log(data);
   useEffect(() => {
     fetchAllProducts();
   }, []);
+
+  console.log("Data -->", data);
 
   const SamplePrevArrow = (props) => {
     const { className, style, onClick } = props;
@@ -33,7 +34,7 @@ const Carousel = () => {
             padding: "2px",
             left: "50px",
           }}
-          onMouseOver="this.style.backgroundColor=`#555`"
+          // onMouseOver="this.style.backgroundColor=`#555`"
         />
       </div>
     );
@@ -106,7 +107,7 @@ const Carousel = () => {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className=" rounded-full w-[550px] hover:scale-105 transition-all shadow-2xl shadow-red-400"
+                    className=" rounded-full w-[500px] hover:scale-90 transition-all shadow-2xl shadow-red-400"
                   />
                 </div>
               </div>
