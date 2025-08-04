@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick.css";
 import { getData } from "../context/DataContext";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import Category from "./Category";
+import MidBanner from "./MidBanner";
 
 const Carousel = () => {
   const { data, fetchAllProducts } = getData();
