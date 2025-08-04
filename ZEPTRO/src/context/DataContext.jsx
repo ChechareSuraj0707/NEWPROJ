@@ -20,8 +20,20 @@ export const DataProvider = ({ children }) => {
       console.log(error);
     }
   };
+
+  const getUniqueCategory = (data, property) => {
+    let newVAL = data?.map((curlElem) => {
+      return curlElem[property];
+    });
+    newVAL = [...new Set(newVAL)];
+    return newVAL;
+  };
+
+  const CatogeryOnlyData = getUniqueCategory(data, "category");
   return (
-    <DataContext.Provider value={{ data, setData, fetchAllProducts }}>
+    <DataContext.Provider
+      value={{ data, setData, fetchAllProducts, CatogeryOnlyData }}
+    >
       {children}
     </DataContext.Provider>
   );
