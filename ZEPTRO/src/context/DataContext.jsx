@@ -15,7 +15,7 @@ export const DataProvider = ({ children }) => {
       // );
       const res = await axios.get("./Data.json");
       setData(res.data.products);
-      console.log("res-->", res);
+      // console.log("res-->", res);
     } catch (error) {
       console.log(error);
     }
