@@ -68,6 +68,8 @@ const FilterSection = ({
         </label>
         <input
           type="range"
+          min="0"
+          max="5000"
           name=""
           id=""
           value={priceRange[1]}
@@ -76,7 +78,15 @@ const FilterSection = ({
           }
         />
       </div>
-      <button className="bg-red-500 text-white rounded-md px-3 py-1 mt-5 cursor-pointer">
+      <button
+        className="bg-red-500 text-white rounded-md px-3 py-1 mt-5 cursor-pointer"
+        onClick={() => {
+          setSearch("");
+          setCategory("All");
+          setBrand("All");
+          setPriceRange([0, 5000]);
+        }}
+      >
         Reset Filters
       </button>
     </div>
