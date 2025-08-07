@@ -57,19 +57,25 @@ const Product = () => {
                 handleCategoryChange={handleCategoryChange}
                 handleBrandChange={handleBrandChange}
               />
-              <div className="grid grid-cols-4 gap-7 mt-10">
-                {filteredData
-                  ?.slice(page * 8 - 8, page * 8)
-                  .map((product, index) => {
-                    return <ProductCard key={index} product={product} />;
-                  })}
-              </div>
+              {filteredData?.length > 0 ? (
+                <div className=" flex flex-col justify-center items-center">
+                  <div className="grid grid-cols-4 gap-7 mt-10">
+                    {filteredData
+                      ?.slice(page * 8 - 8, page * 8)
+                      .map((product, index) => {
+                        return <ProductCard key={index} product={product} />;
+                      })}
+                  </div>
+                  <Pagination
+                    pageHandler={pageHandler}
+                    page={page}
+                    dynamicPage={dynamicPage}
+                  />
+                </div>
+              ) : (
+                <div></div>
+              )}
             </div>
-            <Pagination
-              pageHandler={pageHandler}
-              page={page}
-              dynamicPage={dynamicPage}
-            />
           </>
         ) : (
           <div className=" flex items-center justify-center h-[400px]">
