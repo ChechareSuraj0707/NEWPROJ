@@ -13,6 +13,9 @@ export const DataProvider = ({ children }) => {
       // const res = await axios.get(
       //   "https://dummyjson.com/products/category/smartphones"
       // );
+      // const res = await axios.get(
+      //   "https://fakestoreapi.in/api/products?limit=150"
+      // );
       const res = await axios.get("./Data.json");
       setData(res.data.products);
       // console.log("res-->", res);
