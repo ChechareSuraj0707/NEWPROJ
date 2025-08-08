@@ -4,6 +4,8 @@ import FilterSection from "../components/FilterSection";
 import Loading from "../assets/Loading4.webm";
 import ProductCard from "../components/ProductCard";
 import Pagination from "../components/Pagination";
+import Lottie from "lottie-react";
+import Notfound from "../assets/Notfound.mp4";
 
 const Product = () => {
   const { data, fetchAllProducts } = getData();
@@ -15,15 +17,17 @@ const Product = () => {
 
   useEffect(() => {
     fetchAllProducts();
+    window.scrollTo(0, 0);
   }, []);
 
   const handleCategoryChange = (e) => {
     setCategory(e.target.value);
-    console.log(category);
+    setPage(1);
   };
 
   const handleBrandChange = (e) => {
     setBrand(e.target.value);
+    setPage(1);
   };
 
   const pageHandler = (selectedpage) => {
@@ -73,7 +77,12 @@ const Product = () => {
                   />
                 </div>
               ) : (
-                <div></div>
+                <div className="flex justify-center items-center md:h-[600px] md:w-[900px] mt-10">
+                  {/* <Lottie animationData={Notfound} classID="w-[500px]" /> */}
+                  <video muted autoPlay loop>
+                    <source src={Notfound} type="video/webm"></source>
+                  </video>
+                </div>
               )}
             </div>
           </>
