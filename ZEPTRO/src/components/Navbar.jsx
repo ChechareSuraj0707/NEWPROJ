@@ -3,6 +3,7 @@ import { MapPin } from "lucide-react";
 import { FaCaretDown } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { CgClose } from "react-icons/cg";
+import { useCart } from "../context/CartContext";
 import {
   SignedOut,
   SignInButton,
@@ -11,6 +12,7 @@ import {
 } from "@clerk/clerk-react";
 
 const Navbar = ({ location, getLocation, openDropdown, setOpenDropdown }) => {
+  const { cartItem } = useCart();
   const toggleDropdown = () => {
     setOpenDropdown(!openDropdown);
   };
@@ -111,7 +113,7 @@ const Navbar = ({ location, getLocation, openDropdown, setOpenDropdown }) => {
           <Link to={"/cart"} className="relative">
             <IoCartOutline className="h-7 w-7" />
             <span className=" bg-red-500 px-2 rounded-full absolute -top-3 -right-3 text-white">
-              0
+              {cartItem.length}
             </span>
           </Link>
           <div className="cl-avtarBox">
