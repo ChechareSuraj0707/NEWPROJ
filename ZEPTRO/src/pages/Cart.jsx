@@ -13,7 +13,7 @@ const Cart = ({ location, getLocation }) => {
   const { user } = useUser();
   const navigate = useNavigate();
 
-  console.log("location", location);
+  console.log("user", user);
   const totalPrice = cartItem.reduce((total, item) => total + item.price, 0);
   return (
     <div className="mt-10 max-w-6xl mx-auto mb-5">
@@ -78,13 +78,12 @@ const Cart = ({ location, getLocation }) => {
                   Delivery Info
                 </h1>
                 <div className="flex flex-col space-y-1">
-                  <label htmlFor=""> Full Name</label>
+                  <label htmlFor="">Full Name</label>
                   <input
                     type="text"
                     placeholder="Enter your name"
                     className="p-2 rounded-md"
                     value={user?.fullName}
-                    readOnly
                   />
                 </div>
                 <div className="flex flex-col space-y-1">
