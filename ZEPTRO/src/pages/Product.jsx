@@ -6,6 +6,7 @@ import ProductCard from "../components/ProductCard";
 import Pagination from "../components/Pagination";
 import Lottie from "lottie-react";
 import Notfound from "../assets/Notfound.mp4";
+import { toast } from "react-toastify";
 
 const Product = () => {
   const { data, fetchAllProducts } = getData();

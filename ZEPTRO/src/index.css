@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "react-toastify/dist/ReactToastify.css";
 
 /* clerk user button adjust */
 
@@ -14,11 +15,10 @@
   margin: 1px;
 }
 
-
 /* input colour */
 input {
-background-color: #ffffff;
-accent-color: red;
-border: 1px solid #ccc;
-color: #333;
+  background-color: #ffffff;
+  accent-color: red;
+  border: 1px solid #ccc;
+  color: #333;
 }
