@@ -11,7 +11,7 @@ import Footer from "./components/Footer";
 import SingleProduct from "./pages/SingleProduct";
 
 const App = () => {
-  const [location, setLocation] = useState();
+  const [location, setLocation] = useState({});
   const [openDropdown, setOpenDropdown] = useState(false);
 
   const getLocation = async () => {
@@ -49,7 +49,10 @@ const App = () => {
         <Route path="/product/:id" element={<SingleProduct />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
-        <Route path="/cart" element={<Cart />}></Route>
+        <Route
+          path="/cart"
+          element={<Cart location={location} getLocation={getLocation} />}
+        ></Route>
       </Routes>
       <Footer />
     </BrowserRouter>
