@@ -3,10 +3,19 @@ import { getData } from "../context/DataContext";
 import { useNavigate } from "react-router-dom";
 
 const Category = () => {
-  const { CatogeryOnlyData } = getData();
+  // const { CatogeryOnlyData } = getData();
   const navigate = useNavigate();
+  const { data } = getData();
 
-  console.log(CatogeryOnlyData);
+  const getUniqueCategory = (data, property) => {
+    let newVAL = data?.map((curlElem) => {
+      return curlElem[property];
+    });
+    newVAL = [...new Set(newVAL)];
+    return newVAL;
+  };
+
+  const CatogeryOnlyData = getUniqueCategory(data, "category");
   return (
     <div className="bg-[#101829]">
       <div className="max-w-7xl mx-auto flex gap-4 items-center justify-around py-7 px-4">
