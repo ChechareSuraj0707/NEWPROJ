@@ -7,9 +7,9 @@ import Footer from "../components/Footer";
 const Home = () => {
   return (
     <div>
-      <Carousel />
+      {/* <Carousel />
       <MidBanner />
-      <Features />
+      <Features /> */}
     </div>
   );
 };

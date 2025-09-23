@@ -1,23 +1,27 @@
 import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
 import { MapPin } from "lucide-react";
 import { FaCaretDown } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { CgClose } from "react-icons/cg";
 import { useCart } from "../context/CartContext";
+import { HiMenuAlt1, HiMenuAlt3 } from "react-icons/hi";
 import {
   SignedOut,
   SignInButton,
   UserButton,
   SignedIn,
 } from "@clerk/clerk-react";
+import ResponsiveMenu from "./ResponsiveMenu";
 
 const Navbar = ({ location, getLocation, openDropdown, setOpenDropdown }) => {
   const { cartItem } = useCart();
+  const [openNav, setOpenNav] = useState(false);
   const toggleDropdown = () => {
     setOpenDropdown(!openDropdown);
   };
   return (
-    <div className="bg-white py-3 shadow-2xl">
+    <div className="bg-white py-3 shadow-2xl md:px-0">
       <div className="max-w-6xl mx-auto flex justify-between items-center ">
         {/*logo section */}
         <div className="flex gap-7 items-center">
@@ -26,7 +30,7 @@ const Navbar = ({ location, getLocation, openDropdown, setOpenDropdown }) => {
               <span className="text-red-500 font-serif ml-10">Z</span>aptro
             </h1>
           </Link>
-          <div className="flex gap-1 cursor-pointer text-gray-700 items-center">
+          <div className="md:flex gap-1 cursor-pointer text-gray-700 items-center hidden">
             <MapPin className="text-red-500" />
             <span className="font-semibold">
               {location ? (
@@ -59,8 +63,8 @@ const Navbar = ({ location, getLocation, openDropdown, setOpenDropdown }) => {
           ) : null}
         </div>
         {/* {menu section} */}
-        <nav className="flex gap-7 items-center mr-10">
-          <ul className="flex gap-7 items-center text-xl font-semibold">
+        <nav className="flex gap-7 items-center mr-10 ">
+          <ul className="md:flex gap-7 items-center text-xl font-semibold hidden">
             <NavLink
               to={"/"}
               className={({ isActive }) =>
@@ -116,7 +120,7 @@ const Navbar = ({ location, getLocation, openDropdown, setOpenDropdown }) => {
               {cartItem.length}
             </span>
           </Link>
-          <div className="cl-avtarBox">
+          <div className="cl-avtarBox hidden md:block">
             <SignedOut>
               <SignInButton className="bg-red-500 text-white px-3 py-1 rouned-md cursor-pointer" />
             </SignedOut>
@@ -124,8 +128,20 @@ const Navbar = ({ location, getLocation, openDropdown, setOpenDropdown }) => {
               <UserButton />
             </SignedIn>
           </div>
+          {openNav ? (
+            <HiMenuAlt3
+              onClick={() => setOpenNav(false)}
+              className="h-7 w-7 md:hidden"
+            />
+          ) : (
+            <HiMenuAlt1
+              onClick={() => setOpenNav(true)}
+              className="h-7 w-7 md:hidden"
+            />
+          )}
         </nav>
       </div>
+      <ResponsiveMenu openNav={openNav} setOpenNav={setOpenNav} />
     </div>
   );
 };
