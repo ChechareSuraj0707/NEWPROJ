@@ -6,7 +6,6 @@ import ProductCard from "../components/ProductCard";
 import Pagination from "../components/Pagination";
 import Lottie from "lottie-react";
 import Notfound from "../assets/Notfound.mp4";
-import { toast } from "react-toastify";
 
 const Product = () => {
   const { data, fetchAllProducts } = getData();
@@ -64,7 +63,7 @@ const Product = () => {
               />
               {filteredData?.length > 0 ? (
                 <div className=" flex flex-col justify-center items-center">
-                  <div className="grid grid-cols-4 gap-7 mt-10">
+                  <div className="grid grid-cols-2 md:grid-cols-4 md:gap-7 gap-2 mt-10">
                     {filteredData
                       ?.slice(page * 8 - 8, page * 8)
                       .map((product, index) => {
