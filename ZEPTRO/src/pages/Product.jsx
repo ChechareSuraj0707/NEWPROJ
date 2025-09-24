@@ -6,6 +6,7 @@ import ProductCard from "../components/ProductCard";
 import Pagination from "../components/Pagination";
 import Lottie from "lottie-react";
 import Notfound from "../assets/Notfound.mp4";
+import MobileFilter from "../components/MobileFilter";
 
 const Product = () => {
   const { data, fetchAllProducts } = getData();
@@ -14,6 +15,7 @@ const Product = () => {
   const [brand, setBrand] = useState("All");
   const [priceRange, setPriceRange] = useState([0, 5000]);
   const [page, setPage] = useState(1);
+  const [openFilter, setOpenFilter] = useState(false);
 
   useEffect(() => {
     fetchAllProducts();
@@ -23,15 +25,18 @@ const Product = () => {
   const handleCategoryChange = (e) => {
     setCategory(e.target.value);
     setPage(1);
+    setOpenFilter(false);
   };
 
   const handleBrandChange = (e) => {
     setBrand(e.target.value);
     setPage(1);
+    setOpenFilter(false);
   };
 
   const pageHandler = (selectedpage) => {
     setPage(selectedpage);
+    window.scrollTo(0, 0);
   };
 
   const filteredData = data?.filter(
@@ -45,6 +50,20 @@ const Product = () => {
   const dynamicPage = Math.ceil(filteredData?.length / 8);
   return (
     <div>
+      <MobileFilter
+        openFilter={openFilter}
+        setOpenFilter={setOpenFilter}
+        search={search}
+        setSearch={setSearch}
+        brand={brand}
+        setBrand={setBrand}
+        priceRange={priceRange}
+        setPriceRange={setPriceRange}
+        category={category}
+        setCategory={setCategory}
+        handleCategoryChange={handleCategoryChange}
+        handleBrandChange={handleBrandChange}
+      />
       <div className="max-w-6xl mx-auto px-4 mb-10">
         {data?.length > 0 ? (
           <>
