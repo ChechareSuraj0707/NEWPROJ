@@ -89,18 +89,18 @@ const Carousel = () => {
           return (
             <div
               key={index}
-              className="bg-gradient-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] -z-10"
+              className="bg-gradient-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] overflow-hidden"
             >
-              <div className="flex gap-10 justify-center h-[600px] items-center px-4">
-                <div className="space-y-6">
+              <div className="flex flex-col md:flex-row gap-10 justify-center h-[600px] my-10 md:my-0 items-center px-4">
+                <div className="md:space-y-6 space-y-4">
                   <h3 className="text-red-500 font-semibold font-sans text-sm">
                     {" "}
                     Powering your world with best in electronics
                   </h3>
-                  <h1 className="text-4xl font-bold uppercase line-clamp-3 w-[500px] text-white">
+                  <h1 className="text-xl md:text-4xl font-bold uppercase line-clamp-2 md:line-clamp-3 max-w-[90%] md:max-w-[500px] text-white">
                     {item.title}
                   </h1>
-                  <p className="md:w-[500px] line-clamp-3 text-gray-400 pr-7">
+                  <p className="max-w-[90%] md:max-w-[500px] line-clamp-3 text-gray-400 pr-2 md:pr-7">
                     {item.description}
                   </p>
                   <button className=" bg-gradient-to-r from-red-500 to-purple-500 text-white px-3 py-2 rounded-md cursor-pointer mt-2">
@@ -111,7 +111,7 @@ const Carousel = () => {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className=" rounded-full w-[500px] hover:scale-90 transition-all shadow-2xl shadow-red-400"
+                    className="rounded-full w-[250px] md:w-[500px] hover:scale-90 transition-all shadow-2xl shadow-red-400 mx-auto"
                   />
                 </div>
               </div>

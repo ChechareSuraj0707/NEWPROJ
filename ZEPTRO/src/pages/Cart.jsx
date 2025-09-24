@@ -16,7 +16,7 @@ const Cart = ({ location, getLocation }) => {
   console.log("user", user);
   const totalPrice = cartItem.reduce((total, item) => total + item.price, 0);
   return (
-    <div className="mt-10 max-w-6xl mx-auto mb-5">
+    <div className="mt-10 max-w-6xl mx-auto mb-5 px-4 md:px-0">
       {cartItem.length > 0 ? (
         <div>
           <h1 className="font-bold text-2xl">My Cart ({cartItem.length})</h1>
@@ -35,7 +35,7 @@ const Cart = ({ location, getLocation }) => {
                         className="w-20 h-20 rounded-md"
                       />
                       <div>
-                        <h1 className=" w-[300px] line-clamp-2">
+                        <h1 className=" md:w-[300px] line-clamp-2">
                           {item.title}
                         </h1>
                         <p className="text-red-500 font-semibold text-lg">
@@ -72,7 +72,7 @@ const Cart = ({ location, getLocation }) => {
                 );
               })}
             </div>
-            <div className="grid grid-cols-2 gap-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 md:gap-20">
               <div className=" bg-gray-100 rounded-md p-7 mt-4 space-y-2">
                 <h1 className="text-gray-800 font-bold text-xl">
                   Delivery Info

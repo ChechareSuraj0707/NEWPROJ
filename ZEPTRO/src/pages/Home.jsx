@@ -6,10 +6,10 @@ import Footer from "../components/Footer";
 
 const Home = () => {
   return (
-    <div>
-      {/* <Carousel />
+    <div className="overflow-x-hidden">
+      <Carousel />
       <MidBanner />
-      <Features /> */}
+      <Features />
     </div>
   );
 };
